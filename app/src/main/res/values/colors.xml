@@ -3,4 +3,7 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
+    <color name="dialog_negative">#FF5A5F</color>
+    <color name="dialog_positive">#344D6C</color>
 </resources>
