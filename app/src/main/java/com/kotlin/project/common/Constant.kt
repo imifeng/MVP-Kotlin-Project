@@ -1,6 +1,6 @@
 package com.kotlin.project.common
 
-object Comparams {
+object Constant {
 
     const val LOADING_TYPE_DATA = 0
     const val LOADING_TYPE_WEB = 1

@@ -8,7 +8,7 @@ import android.content.Context
  * @author Finn
  * @date 2020
  */
-class ProgressDialogManager {
+object ProgressDialogManager {
 
     private var progressDialog: ProgressDialog? = null
 
@@ -29,30 +29,15 @@ class ProgressDialogManager {
     }
 
     fun dismissProgress() {
-        if (progressDialog != null && progressDialog!!.isShowing) {
-            try {
-                progressDialog!!.dismiss()
-            } catch (e: Exception) {
-                LogUtils.showError(e)
-            }
-            progressDialog = null
-        }
-    }
-
-    companion object {
-        @Volatile
-        private var progressDialogManager: ProgressDialogManager? = null
-        val instance: ProgressDialogManager?
-            get() {
-                if (progressDialogManager == null) {
-                    synchronized(ProgressDialogManager::class.java) {
-                        if (progressDialogManager == null) {
-                            progressDialogManager =
-                                ProgressDialogManager()
-                        }
-                    }
+        progressDialog?.let {
+            if (it.isShowing) {
+                try {
+                    it.dismiss()
+                } catch (e: Exception) {
+                    LogUtils.showError(e)
                 }
-                return progressDialogManager
+                progressDialog = null
             }
+        }
     }
 }

@@ -2,13 +2,16 @@ package com.kotlin.project.utils
 
 import android.content.Context
 import android.content.SharedPreferences
+import com.kotlin.project.BuildConfig
 import com.kotlin.project.MApplication
 
 object SpUtils {
-    private const val file_name = "SP_PROJECT_CONFIG"
+    const val SP_PREFIX = "${BuildConfig.APPLICATION_ID}.SHARED_PREF"
+    private const val SHARED_PREF = "${SP_PREFIX}_${BuildConfig.BUILD_TYPE}"
+
     private val prefs: SharedPreferences by lazy {
         MApplication.applicationContext.getSharedPreferences(
-            file_name, Context.MODE_PRIVATE
+            SHARED_PREF, Context.MODE_PRIVATE
         )
     }
 
@@ -74,34 +77,4 @@ object SpUtils {
     fun remove(key: String) {
         prefs.edit().remove(key).apply()
     }
-
-    //First time user
-    private const val firstTime_name = "SP_MOPOP_FIRST_TIME"
-
-    fun saveFirstTime(isFirst: Boolean) {
-        saveValue(firstTime_name, isFirst)
-    }
-
-    fun isFirstTime(): Boolean {
-        return getBoolean(firstTime_name, true)
-    }
-
-    //Permission first
-    private const val firstCheckPermission_name = "SP_MOPOP_FIRST_CHECK_PERMISSION"
-    fun saveFirstCheckPermission(checkPermission: Boolean) {
-        saveValue(firstCheckPermission_name, checkPermission)
-    }
-    fun isFirstCheckPermission(): Boolean {
-        return getBoolean(firstCheckPermission_name, true)
-    }
-
-    //Permission skip
-    private const val checkPermission_name = "SP_MOPOP_CHECK_PERMISSION"
-    fun saveCheckPermission(checkPermission: Boolean) {
-        saveValue(checkPermission_name, checkPermission)
-    }
-    fun isCheckPermission(): Boolean {
-        return getBoolean(checkPermission_name, true)
-    }
-
 }
