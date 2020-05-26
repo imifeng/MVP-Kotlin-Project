@@ -27,9 +27,9 @@ abstract class BaseActivity : AppCompatActivity() {
 
     abstract val layoutId: Int
 
-    abstract fun initView()
-    abstract fun initData()
-    abstract fun initEvent()
+    protected open fun initView(){}
+    protected open fun initData(){}
+    protected open fun initEvent(){}
 
     protected fun setOnClickListener(
         view: View,

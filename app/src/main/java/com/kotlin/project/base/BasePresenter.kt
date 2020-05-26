@@ -1,7 +1,7 @@
 package com.kotlin.project.base
 
-import com.kotlin.project.net.NetObserver
-import com.kotlin.project.net.NetRequestListener
+import com.kotlin.project.http.NetObserver
+import com.kotlin.project.http.NetRequestListener
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.core.ObservableTransformer

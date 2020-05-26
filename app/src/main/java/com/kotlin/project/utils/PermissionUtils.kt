@@ -18,6 +18,8 @@ object PermissionUtils {
             "android.permission.ACCESS_COARSE_LOCATION"
         )
 
+    // OTHER PERMISSION
+    //...
 
     /**
      * Check Bluetooth Permission

@@ -6,12 +6,8 @@ import com.kotlin.project.manager.ProgressDialogManager
 import com.kotlin.project.http.RxLifecycleUtils
 import com.kotlin.project.utils.ToastUtils
 
-/**
- * @author Finn
- * @date 2020
- */
-abstract class BaseMvpActivity<V : BaseView, P : BasePresenter<V>> : BaseActivity(),
-    BaseView {
+abstract class BaseMvpFragment<V : BaseView, P : BasePresenter<V>> : BaseFragment(), BaseView {
+
 
     private var presenter: P? = null
 
@@ -20,7 +16,6 @@ abstract class BaseMvpActivity<V : BaseView, P : BasePresenter<V>> : BaseActivit
     }
 
     abstract fun createPresenter(): P
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         presenter = createPresenter()
@@ -32,6 +27,8 @@ abstract class BaseMvpActivity<V : BaseView, P : BasePresenter<V>> : BaseActivit
         super.onDestroy()
         presenter?.detachView()
     }
+
+
 
     /**
      * 绑定生命周期 防止MVP内存泄漏
@@ -48,10 +45,11 @@ abstract class BaseMvpActivity<V : BaseView, P : BasePresenter<V>> : BaseActivit
     }
 
     override fun showLoading() {
-        ProgressDialogManager.showProgress(this)
+        ProgressDialogManager.showProgress(activity)
     }
 
     override fun hideLoading() {
         ProgressDialogManager.dismissProgress()
     }
+
 }

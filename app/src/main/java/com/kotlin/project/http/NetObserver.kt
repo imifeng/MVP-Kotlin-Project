@@ -1,4 +1,4 @@
-package com.kotlin.project.net
+package com.kotlin.project.http
 
 import io.reactivex.rxjava3.annotations.NonNull
 import io.reactivex.rxjava3.core.Observer

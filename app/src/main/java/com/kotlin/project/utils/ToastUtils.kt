@@ -5,11 +5,13 @@ import com.kotlin.project.MApplication
 
 object ToastUtils {
 
-    fun showToast(msg: String) {
-        Toast.makeText(
-            MApplication.applicationContext,
-            msg, Toast.LENGTH_SHORT
-        ).show()
+    fun showToast(msg: String?) {
+        msg?.let {
+            Toast.makeText(
+                MApplication.applicationContext,
+                it, Toast.LENGTH_SHORT
+            ).show()
+        }
     }
 
     fun showToast(msgResId: Int) {

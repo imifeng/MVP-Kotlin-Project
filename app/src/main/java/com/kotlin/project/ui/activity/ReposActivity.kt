@@ -26,6 +26,7 @@ class ReposActivity : BaseMvpActivity<ReposContract.View, ReposPresenter>(), Rep
 
     override fun initEvent() {
         setOnClickListener(iv_back, View.OnClickListener { finish() })
+
         setOnClickListener(tv_repos_btn, View.OnClickListener {
             if (et_username.text.toString().trim().isNullOrEmpty()){
                 ToastUtils.showToast(getString(R.string.repos_text_hint_username))

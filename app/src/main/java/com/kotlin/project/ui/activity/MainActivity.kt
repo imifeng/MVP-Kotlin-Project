@@ -17,11 +17,13 @@ class MainActivity : BaseActivity() {
     }
 
     override fun initEvent() {
+
         setOnClickListener(btn_test, View.OnClickListener {
             //goto Test
-//            val intent = Intent(this, TestFragmentActivity::class.java)
-//            startActivity(intent)
+            val intent = Intent(this, TestFragmentActivity::class.java)
+            startActivity(intent)
         })
+
         setOnClickListener(btn_repos, View.OnClickListener {
             val intent = Intent(this, ReposActivity::class.java)
             startActivity(intent)

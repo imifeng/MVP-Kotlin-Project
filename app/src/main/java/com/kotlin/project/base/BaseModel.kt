@@ -1,6 +1,6 @@
 package com.kotlin.project.base
 
-import com.kotlin.project.net.RetrofitClient
+import com.kotlin.project.http.RetrofitClient
 
 /**
  * @author Finn

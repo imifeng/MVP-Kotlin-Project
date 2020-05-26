@@ -1,4 +1,4 @@
-package com.kotlin.project.net
+package com.kotlin.project.http
 
 import com.kotlin.project.BuildConfig
 import okhttp3.*

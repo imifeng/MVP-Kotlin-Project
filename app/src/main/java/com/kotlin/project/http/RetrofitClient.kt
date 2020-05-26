@@ -1,16 +1,13 @@
-package com.kotlin.project.net
+package com.kotlin.project.http
 
 import LogUtils
 import android.text.TextUtils
 import com.kotlin.project.BuildConfig
 import com.kotlin.project.manager.SharedPreferencesManager
-import com.kotlin.project.mvp.model.bean.User
-import com.kotlin.project.net.LoggingInterceptor.Logger
-import com.kotlin.project.utils.GsonUtils
+import com.kotlin.project.http.LoggingInterceptor.Logger
 import hu.akarnokd.rxjava3.retrofit.RxJava3CallAdapterFactory
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
-import okhttp3.Request
 import okhttp3.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

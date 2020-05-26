@@ -2,6 +2,7 @@ package com.kotlin.project.mvp.presenter
 
 import com.kotlin.project.base.BasePresenter
 import com.kotlin.project.mvp.contract.ReposContract
+import com.kotlin.project.mvp.contract.TestContract
 import com.kotlin.project.mvp.model.ReposModel
 import com.kotlin.project.mvp.model.bean.RepoBean
 import com.kotlin.project.http.NetRequestListener
@@ -11,7 +12,7 @@ import com.kotlin.project.http.NetRequestListener
  * @author Finn
  * @date 2020
  */
-open class ReposPresenter : BasePresenter<ReposContract.View>(), ReposContract.Presenter {
+open class TestPresenter : BasePresenter<TestContract.View>(), TestContract.Presenter {
 
     private val model: ReposContract.Model by lazy {
         ReposModel()

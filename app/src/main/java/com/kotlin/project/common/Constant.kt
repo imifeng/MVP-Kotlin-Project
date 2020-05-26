@@ -9,4 +9,6 @@ object Constant {
     const val EXTRA_ID = "EXTRA_ID"
     const val EXTRA_BEAN = "EXTRA_BEAN"
 
+    const val EXTRA_ACTION_TEST = "EXTRA_ACTION_TEST"
+
 }

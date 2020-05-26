@@ -19,7 +19,6 @@ class MApplication : Application() {
             get() {
                 return app.applicationContext
             }
-
     }
 
     init {
