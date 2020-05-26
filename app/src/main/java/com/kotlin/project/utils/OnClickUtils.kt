@@ -5,11 +5,11 @@ import android.view.View
 
 object OnClickUtils {
 
-    fun setOnClickListener(view: View, onClickListener: View.OnClickListener?) {
+    fun setOnClickListener(mView: View, onClickListener: View.OnClickListener?) {
         var startX = 0f
         var startY = 0f
 
-        view.setOnTouchListener { view, motionEvent ->
+        mView.setOnTouchListener { view, motionEvent ->
             try {
                 val x = motionEvent.rawX
                 val y = motionEvent.rawY

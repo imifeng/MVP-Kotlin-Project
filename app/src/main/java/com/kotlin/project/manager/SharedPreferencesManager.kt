@@ -1,5 +1,8 @@
 package com.kotlin.project.manager
 
+import android.text.TextUtils
+import com.kotlin.project.mvp.model.bean.User
+import com.kotlin.project.utils.GsonUtils
 import com.kotlin.project.utils.SpUtils
 
 /**
@@ -27,5 +30,24 @@ object SharedPreferencesManager {
     var userToken: String
         get() = SpUtils.getString(KEY_USER_TOKEN)
         set(value) = SpUtils.saveValue(KEY_USER_TOKEN, value)
+
+    /**
+     * KEY_JSON_USER
+     */
+    fun saveUser(userJson: String) {
+        SpUtils.saveValue(KEY_USER, userJson)
+    }
+
+    fun getUser(): User? {
+        val userJson = SpUtils.getString(KEY_USER)
+        return if (!userJson.isNullOrEmpty()) {
+            GsonUtils.get().fromJson(userJson, User::class.java) as User
+        } else null
+    }
+
+    fun clearUser() {
+        SpUtils.remove(KEY_USER)
+    }
+
 
 }

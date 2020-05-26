@@ -34,7 +34,7 @@ object DialogUtils {
         alertDialog = AlertDialog.Builder(context).create().apply {
             setTitle(title)
             setMessage(message)
-            setButton(DialogInterface.BUTTON_POSITIVE, btnText) { dialogInterface, i -> dialogInterface.dismiss() }
+            setButton(DialogInterface.BUTTON_POSITIVE, btnText) { dialogInterface, _ -> dialogInterface.dismiss() }
             show()
             getButton(DialogInterface.BUTTON_POSITIVE).setTextColor(btnTextColor)
         }

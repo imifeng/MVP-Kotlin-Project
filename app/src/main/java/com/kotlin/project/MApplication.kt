@@ -21,6 +21,7 @@ class MApplication : Application() {
             }
 
     }
+
     init {
         app = this
     }
@@ -35,20 +36,18 @@ class MApplication : Application() {
     }
 
     fun isContextExisted(context: Context): Boolean {
-        if (context != null) {
-            if (context is Activity) {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-                    if (!context.isDestroyed && !context.isFinishing) {
-                        return true
-                    }
-                } else {
-                    if (!context.isFinishing) {
-                        return true
-                    }
+        if (context is Activity) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+                if (!context.isDestroyed && !context.isFinishing) {
+                    return true
                 }
-            } else if (context is Application) {
-                return true
+            } else {
+                if (!context.isFinishing) {
+                    return true
+                }
             }
+        } else if (context is Application) {
+            return true
         }
         return false
     }

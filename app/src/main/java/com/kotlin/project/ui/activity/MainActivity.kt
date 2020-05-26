@@ -1,13 +1,35 @@
 package com.kotlin.project.ui.activity
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
+import android.content.Intent
+import android.view.View
 import com.kotlin.project.R
+import com.kotlin.project.base.BaseActivity
+import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+    override val layoutId: Int = R.layout.activity_main
+
+    override fun initView() {
     }
+
+    override fun initData() {
+    }
+
+    override fun initEvent() {
+        setOnClickListener(btn_test, View.OnClickListener {
+            //goto Test
+//            val intent = Intent(this, TestFragmentActivity::class.java)
+//            startActivity(intent)
+        })
+        setOnClickListener(btn_repos, View.OnClickListener {
+            val intent = Intent(this, ReposActivity::class.java)
+            startActivity(intent)
+        })
+    }
+
+    override fun onBack() {
+        finish()
+    }
+
 }

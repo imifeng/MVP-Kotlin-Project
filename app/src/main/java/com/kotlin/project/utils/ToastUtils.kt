@@ -3,7 +3,7 @@ package com.kotlin.project.utils
 import android.widget.Toast
 import com.kotlin.project.MApplication
 
-object ToastUtil {
+object ToastUtils {
 
     fun showToast(msg: String) {
         Toast.makeText(

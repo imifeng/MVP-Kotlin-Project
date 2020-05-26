@@ -64,7 +64,7 @@ object AppUtils {
 
     fun getStatusBarHeight(activity: Activity): Int {
         val rectangle = Rect()
-        val window = activity.window.decorView.getWindowVisibleDisplayFrame(rectangle)
+        activity.window.decorView.getWindowVisibleDisplayFrame(rectangle)
         return rectangle.top
     }
 

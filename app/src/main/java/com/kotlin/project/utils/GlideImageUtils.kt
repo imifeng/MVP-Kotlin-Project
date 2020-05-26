@@ -2,7 +2,6 @@ package com.kotlin.project.utils
 
 import android.content.Context
 import android.graphics.PorterDuff
-import android.text.TextUtils
 import android.widget.ImageView
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.bumptech.glide.Glide
@@ -20,7 +19,7 @@ import com.bumptech.glide.request.target.Target
 object GlideImageUtils {
 
     fun loadRound(context: Context?, view: ImageView, url: String?, showLoader: Boolean) {
-        if (!TextUtils.isEmpty(url) && context != null) {
+        if (!url.isNullOrEmpty() && context != null) {
             val requestOptions =
                 RequestOptions.circleCropTransform()
             loadImage(context, view, url, requestOptions, showLoader)
@@ -28,7 +27,7 @@ object GlideImageUtils {
     }
 
     fun loadRect(context: Context?, view: ImageView, url: String?, showLoader: Boolean) {
-        if (!TextUtils.isEmpty(url) && context != null) {
+        if (!url.isNullOrEmpty() && context != null) {
             val requestOptions =
                 RequestOptions.centerCropTransform()
             loadImage(context, view, url, requestOptions, showLoader)
@@ -36,7 +35,7 @@ object GlideImageUtils {
     }
 
     fun loadRectNoCut(context: Context?, view: ImageView, url: String?, showLoader: Boolean) {
-        if (!TextUtils.isEmpty(url) && context != null) {
+        if (!url.isNullOrEmpty() && context != null) {
             val requestOptions =
                 RequestOptions.fitCenterTransform()
             loadImage(context, view, url, requestOptions, showLoader)
@@ -50,7 +49,7 @@ object GlideImageUtils {
         roundedCorners: Int,
         showLoader: Boolean
     ) {
-        if (!TextUtils.isEmpty(url) && context != null) {
+        if (!url.isNullOrEmpty() && context != null) {
             val requestOptions =
                 RequestOptions().transform(CenterCrop(), RoundedCorners(roundedCorners))
             loadImage(context, view, url, requestOptions, showLoader)

@@ -25,7 +25,6 @@ object PermissionUtils {
     fun isCheckBluetoothPermission(context: Context): Boolean {
         val manager: BluetoothManager =
             context.getSystemService(AppCompatActivity.BLUETOOTH_SERVICE) as BluetoothManager
-        if (manager?.adapter == null) return false
         return manager.adapter.isEnabled
     }
 
