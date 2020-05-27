@@ -30,6 +30,7 @@
         </activity>
         <activity android:name=".ui.activity.TestFragmentActivity" />
         <activity android:name=".ui.activity.ReposActivity" />
+        <activity android:name=".ui.activity.MenuTestActivity" />
     </application>
 
 </manifest>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#64100211">
+
+
+    <TextView
+        android:id="@+id/tv_1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="end"
+        android:layout_marginTop="360dp"
+        android:layout_marginRight="40dp"
+        android:gravity="center"
+        android:text="标题1"
+        android:textColor="#000"
+        android:visibility="gone"
+        android:background="@drawable/bg_circle_button_primary_white"
+        />
+
+    <TextView
+        android:id="@+id/tv_2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="end"
+        android:layout_marginTop="360dp"
+        android:layout_marginRight="40dp"
+        android:gravity="center"
+        android:text="标题2"
+        android:textColor="#000"
+        android:visibility="gone"
+        android:background="@drawable/bg_circle_button_primary_white"/>
+
+    <TextView
+        android:id="@+id/tv_3"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="end"
+        android:layout_marginTop="360dp"
+        android:layout_marginRight="40dp"
+        android:gravity="center"
+        android:text="标题3"
+        android:textColor="#000"
+        android:visibility="gone"
+        android:background="@drawable/bg_circle_button_primary_white"/>
+
+    <TextView
+        android:id="@+id/tv_4"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="end"
+        android:layout_marginTop="360dp"
+        android:layout_marginRight="40dp"
+        android:gravity="center"
+        android:text="标题4"
+        android:textColor="#000"
+        android:visibility="gone"
+        android:background="@drawable/bg_circle_button_primary_white"/>
+
+
+    <ImageView
+        android:id="@+id/img_publish"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="end"
+        android:layout_marginTop="360dp"
+        android:layout_marginRight="35dp"
+        android:layout_marginBottom="35dp"
+        android:background="@drawable/bg_circle_button_primary_white"
+        android:src="@drawable/ic_up_down_arrows"
+
+        />
+
+</FrameLayout>
+ 
