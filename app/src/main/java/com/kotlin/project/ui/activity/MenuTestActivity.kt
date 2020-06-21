@@ -8,6 +8,7 @@ import android.view.animation.BounceInterpolator
 import android.widget.TextView
 import com.kotlin.project.R
 import com.kotlin.project.base.BaseActivity
+import com.kotlin.project.ui.listener.setOnEventClickListener
 import kotlinx.android.synthetic.main.activity_menu_test.*
 
 
@@ -28,7 +29,7 @@ class MenuTestActivity : BaseActivity() {
     }
 
     override fun initEvent() {
-        setOnClickListener(img_publish, View.OnClickListener {
+        img_publish.setOnEventClickListener {
             if (!isMenuOpen) {
                 showOpenAnim(180)
                 img_publish.setImageResource(R.drawable.ic_close)
@@ -39,7 +40,7 @@ class MenuTestActivity : BaseActivity() {
                 img_publish.setBackgroundResource(R.drawable.bg_circle_button_primary_white)
 
             }
-        })
+        }
     }
 
 

@@ -7,8 +7,9 @@ import com.kotlin.project.base.BaseActivity
 import com.kotlin.project.base.BaseFragment
 import com.kotlin.project.common.Constant
 import com.kotlin.project.ui.fragment.TestReposFragment
-import com.kotlin.project.utils.DisplayCutoutUtils
+import com.kotlin.project.ui.listener.setOnEventClickListener
 import com.kotlin.project.utils.ToastUtils
+import com.kotlin.project.utils.adaptStatusBarHeight
 import kotlinx.android.synthetic.main.activity_fragment_test.*
 
 class TestFragmentActivity : BaseActivity() {
@@ -23,7 +24,7 @@ class TestFragmentActivity : BaseActivity() {
         super.initView()
 
         //适配刘海高度
-        DisplayCutoutUtils.adaptStatusBarHeight(this, status_bar)
+        status_bar.adaptStatusBarHeight()
 
         val bundle = Bundle()
         bundle.putString(Constant.EXTRA_ACTION_TEST, "Test")
@@ -39,11 +40,8 @@ class TestFragmentActivity : BaseActivity() {
 
     override fun initEvent() {
         super.initEvent()
-//        iv_back.setOnClickListener {
-//            onBack()
-//        }
         //使用了有点击效果
-        setOnClickListener(iv_back, View.OnClickListener { onBack() })
+        iv_back.setOnEventClickListener { onBack() }
     }
 
     private fun openFragment(fragment: BaseFragment) {

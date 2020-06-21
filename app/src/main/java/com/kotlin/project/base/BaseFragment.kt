@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.kotlin.project.utils.OnClickUtils
 
 abstract class BaseFragment : Fragment() {
 
@@ -43,9 +42,5 @@ abstract class BaseFragment : Fragment() {
     protected open fun initData(){}
 
     protected open fun initEvent(){}
-
-    protected open fun setOnClickListener(view: View, onClickListener: View.OnClickListener?) {
-        OnClickUtils.setOnClickListener(view, onClickListener)
-    }
 
 }

@@ -3,10 +3,8 @@ package com.kotlin.project.base
 import android.content.res.Resources
 import android.os.Bundle
 import android.view.KeyEvent
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.jaeger.library.StatusBarUtil
-import com.kotlin.project.utils.OnClickUtils
 
 /**
  * @author Finn
@@ -30,13 +28,6 @@ abstract class BaseActivity : AppCompatActivity() {
     protected open fun initView(){}
     protected open fun initData(){}
     protected open fun initEvent(){}
-
-    protected fun setOnClickListener(
-        view: View,
-        onClickListener: View.OnClickListener?
-    ) {
-        OnClickUtils.setOnClickListener(view, onClickListener)
-    }
 
     protected abstract fun onBack()
 

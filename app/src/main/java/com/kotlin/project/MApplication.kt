@@ -3,10 +3,8 @@ package com.kotlin.project
 import android.R
 import android.app.Activity
 import android.app.Application
-import android.content.ComponentCallbacks2
 import android.content.Context
 import android.os.Build
-import com.kotlin.project.utils.GlideImageUtils
 
 class MApplication : Application() {
 
@@ -50,19 +48,4 @@ class MApplication : Application() {
         }
         return false
     }
-
-    override fun onTrimMemory(level: Int) {
-        super.onTrimMemory(level)
-        when (R.attr.level) {
-            ComponentCallbacks2.TRIM_MEMORY_UI_HIDDEN -> {
-                GlideImageUtils.clearMemory(this)
-            }
-        }
-    }
-
-    override fun onLowMemory() {
-        super.onLowMemory()
-        GlideImageUtils.clearMemory(this)
-    }
-
 }
