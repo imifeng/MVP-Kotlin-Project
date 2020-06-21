@@ -4,6 +4,7 @@ import android.content.Intent
 import android.view.View
 import com.kotlin.project.R
 import com.kotlin.project.base.BaseActivity
+import com.kotlin.project.ui.listener.setOnEventClickListener
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity() {
@@ -18,22 +19,22 @@ class MainActivity : BaseActivity() {
 
     override fun initEvent() {
 
-        setOnClickListener(btn_menu, View.OnClickListener {
+        btn_menu.setOnEventClickListener {
             //goto Test
             val intent = Intent(this, MenuTestActivity::class.java)
             startActivity(intent)
-        })
+        }
 
-        setOnClickListener(btn_test, View.OnClickListener {
+        btn_test.setOnEventClickListener {
             //goto Test
             val intent = Intent(this, TestFragmentActivity::class.java)
             startActivity(intent)
-        })
+        }
 
-        setOnClickListener(btn_repos, View.OnClickListener {
+        btn_repos.setOnEventClickListener {
             val intent = Intent(this, ReposActivity::class.java)
             startActivity(intent)
-        })
+        }
     }
 
     override fun onBack() {

@@ -16,113 +16,104 @@ import com.kotlin.project.MApplication
 import com.kotlin.project.R
 import com.bumptech.glide.request.target.Target
 
-object GlideImageUtils {
 
-    fun loadRound(context: Context?, view: ImageView, url: String?, showLoader: Boolean) {
-        if (!url.isNullOrEmpty() && context != null) {
-            val requestOptions =
-                RequestOptions.circleCropTransform()
-            loadImage(context, view, url, requestOptions, showLoader)
-        }
+fun ImageView.loadRound(url: String?, showLoader: Boolean) {
+    if (!url.isNullOrEmpty() && context != null) {
+        val requestOptions =
+            RequestOptions.circleCropTransform()
+        loadImage(context, this, url, requestOptions, showLoader)
+    }
+}
+
+fun ImageView.loadRect(url: String?, showLoader: Boolean) {
+    if (!url.isNullOrEmpty() && context != null) {
+        val requestOptions =
+            RequestOptions.centerCropTransform()
+        loadImage(context, this, url, requestOptions, showLoader)
+    }
+}
+
+fun ImageView.loadRectNoCut(url: String?, showLoader: Boolean) {
+    if (!url.isNullOrEmpty() && context != null) {
+        val requestOptions =
+            RequestOptions.fitCenterTransform()
+        loadImage(context, this, url, requestOptions, showLoader)
+    }
+}
+
+fun ImageView.loadRoundCorner(url: String?, roundedCorners: Int, showLoader: Boolean) {
+    if (!url.isNullOrEmpty() && context != null) {
+        val requestOptions =
+            RequestOptions().transform(CenterCrop(), RoundedCorners(roundedCorners))
+        loadImage(context, this, url, requestOptions, showLoader)
+    }
+}
+
+private fun loadImage(
+    context: Context,
+    view: ImageView,
+    url: String?,
+    requestOptions: RequestOptions,
+    showLoader: Boolean
+) {
+    if (!MApplication.app.isContextExisted(context)) {
+        return
     }
 
-    fun loadRect(context: Context?, view: ImageView, url: String?, showLoader: Boolean) {
-        if (!url.isNullOrEmpty() && context != null) {
-            val requestOptions =
-                RequestOptions.centerCropTransform()
-            loadImage(context, view, url, requestOptions, showLoader)
-        }
+    try {
+        if (showLoader) {
+            val circularProgressDrawable = CircularProgressDrawable(context)
+            circularProgressDrawable.strokeWidth = 6F
+            circularProgressDrawable.setColorFilter(
+                MApplication.applicationContext.resources.getColor(
+                    R.color.colorAccent
+                ), PorterDuff.Mode.SRC
+            )
+            circularProgressDrawable.centerRadius = 40F
+            circularProgressDrawable.start()
+
+            Glide.with(context)
+                .load(url)
+                .thumbnail(0.2f)
+                .apply(requestOptions)
+                .placeholder(circularProgressDrawable)
+                .into(view)
+        } else
+            Glide.with(context)
+                .load(url)
+                .thumbnail(0.2f)
+                .apply(requestOptions)
+                .into(view)
+    } catch (e: Exception) {
+        LogUtils.showError(e)
     }
+}
 
-    fun loadRectNoCut(context: Context?, view: ImageView, url: String?, showLoader: Boolean) {
-        if (!url.isNullOrEmpty() && context != null) {
-            val requestOptions =
-                RequestOptions.fitCenterTransform()
-            loadImage(context, view, url, requestOptions, showLoader)
-        }
-    }
+fun loadGif(context: Context, gifView: ImageView, gifDrawable: Int, loopCount: Int) {
+    Glide.with(context).asGif().load(gifDrawable)
+        .listener(object : RequestListener<GifDrawable> {
+            override fun onLoadFailed(
+                e: GlideException?,
+                model: Any,
+                target: Target<GifDrawable>,
+                isFirstResource: Boolean
+            ): Boolean {
+                return false
+            }
 
-    fun loadRoundCorner(
-        context: Context?,
-        view: ImageView,
-        url: String?,
-        roundedCorners: Int,
-        showLoader: Boolean
-    ) {
-        if (!url.isNullOrEmpty() && context != null) {
-            val requestOptions =
-                RequestOptions().transform(CenterCrop(), RoundedCorners(roundedCorners))
-            loadImage(context, view, url, requestOptions, showLoader)
-        }
-    }
+            override fun onResourceReady(
+                resource: GifDrawable,
+                model: Any,
+                target: Target<GifDrawable>,
+                dataSource: DataSource,
+                isFirstResource: Boolean
+            ): Boolean {
+                resource.setLoopCount(loopCount)
+                return false
+            }
+        }).into(gifView).clearOnDetach()
+}
 
-    private fun loadImage(
-        context: Context,
-        view: ImageView,
-        url: String?,
-        requestOptions: RequestOptions,
-        showLoader: Boolean
-    ) {
-        if (!MApplication.app.isContextExisted(context)) {
-            return
-        }
-
-        try {
-            if (showLoader) {
-                val circularProgressDrawable = CircularProgressDrawable(context)
-                circularProgressDrawable.strokeWidth = 6F
-                circularProgressDrawable.setColorFilter(
-                    MApplication.applicationContext.resources.getColor(
-                        R.color.colorAccent
-                    ), PorterDuff.Mode.SRC
-                )
-                circularProgressDrawable.centerRadius = 40F
-                circularProgressDrawable.start()
-
-                Glide.with(context)
-                    .load(url)
-                    .thumbnail(0.2f)
-                    .apply(requestOptions)
-                    .placeholder(circularProgressDrawable)
-                    .into(view)
-            } else
-                Glide.with(context)
-                    .load(url)
-                    .thumbnail(0.2f)
-                    .apply(requestOptions)
-                    .into(view)
-        } catch (e: Exception) {
-            LogUtils.showError(e)
-        }
-    }
-
-    fun loadGif(context: Context, gifView: ImageView, gifDrawable: Int, loopCount: Int) {
-        Glide.with(context).asGif().load(gifDrawable)
-            .listener(object : RequestListener<GifDrawable> {
-                override fun onLoadFailed(
-                    e: GlideException?,
-                    model: Any,
-                    target: Target<GifDrawable>,
-                    isFirstResource: Boolean
-                ): Boolean {
-                    return false
-                }
-
-                override fun onResourceReady(
-                    resource: GifDrawable,
-                    model: Any,
-                    target: Target<GifDrawable>,
-                    dataSource: DataSource,
-                    isFirstResource: Boolean
-                ): Boolean {
-                    resource.setLoopCount(loopCount)
-                    return false
-                }
-            }).into(gifView).clearOnDetach()
-    }
-
-    fun clearMemory(context: Context) {
-        Glide.get(context).clearMemory()
-    }
-
+fun clearMemory(context: Context) {
+    Glide.get(context).clearMemory()
 }

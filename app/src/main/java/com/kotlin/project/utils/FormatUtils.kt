@@ -89,23 +89,23 @@ object FormatUtils {
         return 0L
     }
 
-    fun getOnePointsStr(value: Float): String {
+    fun Float.getOnePointsStr(): String {
         val numberFormat = DecimalFormat("0.0")
-        return numberFormat.format(value.toDouble())
+        return numberFormat.format(this.toDouble())
     }
 
-    fun getOnePointsStr(value: Double): String {
+    fun Double.getOnePointsStr(): String {
         val numberFormat = DecimalFormat("0.0")
-        return numberFormat.format(value)
+        return numberFormat.format(this)
     }
 
-    fun getThreePointsStr(value: Float): String {
+    fun Float.getThreePointsStr(): String {
         val numberFormat = DecimalFormat("0.000")
-        return numberFormat.format(value.toDouble())
+        return numberFormat.format(this.toDouble())
     }
 
-    fun getPointNoZeroStr(value: Float): String {
+    fun Float.getPointNoZeroStr(): String {
         val numberFormat = NumberFormat.getInstance()
-        return numberFormat.format(value.toDouble())
+        return numberFormat.format(this.toDouble())
     }
 }

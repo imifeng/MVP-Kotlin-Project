@@ -7,6 +7,7 @@ import com.kotlin.project.common.Constant
 import com.kotlin.project.mvp.contract.TestContract
 import com.kotlin.project.mvp.model.bean.RepoBean
 import com.kotlin.project.mvp.presenter.TestPresenter
+import com.kotlin.project.ui.listener.setOnEventClickListener
 import com.kotlin.project.utils.GsonUtils
 import com.kotlin.project.utils.ToastUtils
 import kotlinx.android.synthetic.main.fragment_test_repos.*
@@ -32,13 +33,13 @@ class TestReposFragment : BaseMvpFragment<TestContract.View, TestPresenter>(), T
     override fun initEvent() {
         super.initEvent()
 
-        setOnClickListener(tv_repos_btn, View.OnClickListener {
+        tv_repos_btn.setOnEventClickListener {
             if (et_username.text.toString().trim().isNullOrEmpty()) {
                 ToastUtils.showToast(getString(R.string.repos_text_hint_username))
-                return@OnClickListener
+                return@setOnEventClickListener
             }
             getPresenter()?.getRepos(et_username.text.toString().trim())
-        })
+        }
     }
 
 
