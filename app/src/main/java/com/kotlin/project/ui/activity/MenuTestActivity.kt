@@ -8,6 +8,8 @@ import android.view.animation.BounceInterpolator
 import android.widget.TextView
 import com.kotlin.project.R
 import com.kotlin.project.base.BaseActivity
+import com.kotlin.project.extension.gone
+import com.kotlin.project.extension.visible
 import com.kotlin.project.ui.listener.setOnEventClickListener
 import kotlinx.android.synthetic.main.activity_menu_test.*
 
@@ -49,7 +51,7 @@ class MenuTestActivity : BaseActivity() {
 
         //for循环来开始小图标的出现动画
         for (i in textViews.indices) {
-            textViews[i].setVisibility(View.VISIBLE)
+            textViews[i].visible()
             val set = AnimatorSet()
             val x = getAnimatorSetX(dp, i)
             val y = getAnimatorSetY(dp, i)
@@ -126,7 +128,7 @@ class MenuTestActivity : BaseActivity() {
                 }
 
                 override fun onAnimationEnd(animation: Animator?) {
-                    textViews[i].setVisibility(View.GONE)
+                    textViews[i].gone()
                     //菜单状态置关闭
                     isMenuOpen = false
                     img_publish.isEnabled = true
@@ -151,9 +153,7 @@ class MenuTestActivity : BaseActivity() {
         when (position) {
             0 -> {
                 val a = -Math.cos(30 * Math.PI / 180)
-                val b = -Math.sin(30 * Math.PI / 180)
                 return a * dip2px(dp)
-                val y: Double = b * dip2px(dp)
             }
             1->{
                 val a = -Math.cos(30 * Math.PI / 180)

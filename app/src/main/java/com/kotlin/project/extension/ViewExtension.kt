@@ -1,4 +1,4 @@
-package com.kotlin.project.ui.extension
+package com.kotlin.project.extension
 
 import android.view.View
 import androidx.annotation.ColorRes
@@ -24,3 +24,14 @@ fun View.setOnSingleClickListener(listener: (View) -> Unit){
     setOnClickListener(OnSingleClickListener(listener))
 }
 
+fun View.visible(){
+    this.visibility = View.VISIBLE
+}
+
+fun View.gone(){
+    this.visibility = View.GONE
+}
+
+fun View.invisible(){
+    this.visibility = View.INVISIBLE
+}
