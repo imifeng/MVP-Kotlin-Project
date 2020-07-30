@@ -1,18 +1,19 @@
 package com.kotlin.project.ui.activity
 
-import android.view.View
+import android.os.Build
+import androidx.annotation.RequiresApi
 import com.kotlin.project.R
 import com.kotlin.project.base.BaseMvpActivity
 import com.kotlin.project.mvp.contract.ReposContract
 import com.kotlin.project.mvp.model.bean.RepoBean
 import com.kotlin.project.mvp.presenter.ReposPresenter
 import com.kotlin.project.ui.listener.setOnEventClickListener
-import com.kotlin.project.utils.GsonUtils
-import com.kotlin.project.utils.ToastUtils
-import com.kotlin.project.utils.adaptStatusBarHeight
+import com.kotlin.project.utils.*
 import kotlinx.android.synthetic.main.activity_repos.*
 
-class ReposActivity : BaseMvpActivity<ReposContract.View, ReposPresenter>(), ReposContract.View {
+@RequiresApi(Build.VERSION_CODES.LOLLIPOP) // API > 21
+class ReposActivity : BaseMvpActivity<ReposContract.View, ReposPresenter>(), ReposContract.View,
+    NetworkConnectedListener {
 
     override fun createPresenter() = ReposPresenter()
 
@@ -20,6 +21,8 @@ class ReposActivity : BaseMvpActivity<ReposContract.View, ReposPresenter>(), Rep
 
     override fun initView() {
         status_bar.adaptStatusBarHeight()
+        //注册网络监听
+        NetworkManger.getInstance().registerNetworkCallback(this)
     }
 
     override fun initData() {
@@ -30,8 +33,8 @@ class ReposActivity : BaseMvpActivity<ReposContract.View, ReposPresenter>(), Rep
             finish()
         }
 
-        tv_repos_btn.setOnEventClickListener{
-            if (et_username.text.toString().trim().isNullOrEmpty()){
+        tv_repos_btn.setOnEventClickListener {
+            if (et_username.text.toString().trim().isNullOrEmpty()) {
                 ToastUtils.showToast(getString(R.string.repos_text_hint_username))
                 return@setOnEventClickListener
             }
@@ -45,5 +48,24 @@ class ReposActivity : BaseMvpActivity<ReposContract.View, ReposPresenter>(), Rep
 
     override fun onReposSuccess(response: List<RepoBean>) {
         ToastUtils.showToast("getRepos Successful:" + ":" + GsonUtils.get().toJson(response))
+    }
+
+    /**
+     * 网络监听回调
+     */
+    override fun networkConnected(isConnected: Boolean) {
+        if (isConnected) {
+            //有网络
+            ToastUtils.showToast("网络连接上了")
+        } else {
+            //无网络
+            ToastUtils.showToast("失去网络了")
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        //注销网络监听
+        NetworkManger.getInstance().unregisterNetworkCallback()
     }
 }
