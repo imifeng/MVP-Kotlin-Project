@@ -2,7 +2,6 @@ package com.kotlin.project.base
 
 import android.content.res.Resources
 import android.os.Bundle
-import android.view.KeyEvent
 import androidx.appcompat.app.AppCompatActivity
 import com.jaeger.library.StatusBarUtil
 

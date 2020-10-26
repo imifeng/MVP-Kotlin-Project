@@ -85,4 +85,10 @@ class ReposActivity : BaseMvpActivity<ReposContract.View, ReposPresenter>(), Rep
         //注销网络监听
         NetworkManger.getInstance().unregisterNetworkCallback()
     }
+
+    override fun handleBack(): Boolean {
+        // 屏蔽返回按钮
+        ToastUtils.showToast("已经屏蔽了返回按钮")
+        return true
+    }
 }
