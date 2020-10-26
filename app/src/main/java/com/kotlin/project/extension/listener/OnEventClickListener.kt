@@ -30,7 +30,7 @@ inline fun View.setOnEventClickListener(crossinline onClick: () -> Unit) {
                 }
             }
         } catch (e: Exception) {
-            LogUtils.showError(e)
+            LogUtils.e(e)
         }
         true
     }

@@ -85,7 +85,7 @@ private fun loadImage(
                 .apply(requestOptions)
                 .into(view)
     } catch (e: Exception) {
-        LogUtils.showError(e)
+        LogUtils.e(e)
     }
 }
 

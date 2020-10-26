@@ -1,6 +1,5 @@
 package com.kotlin.project.ui.repos.adapter.viewholder
 
-import android.util.Log
 import android.view.View
 import com.kotlin.project.base.BaseViewHolder
 import com.kotlin.project.mvp.model.bean.RepoBean
@@ -22,7 +21,7 @@ class ReposViewHolder(itemView: View) : BaseViewHolder(itemView) {
 
                 // 为ViewHolder的视图定义点击监听器
                 setOnClickListener {
-                    Log.d(TAG, "Element $adapterPosition clicked.")
+                    LogUtils.d(TAG, "Element $adapterPosition clicked.")
                 }
             }
         }

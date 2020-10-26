@@ -24,7 +24,7 @@ object ProgressDialogManager {
 //            progressDialog?.window?.setBackgroundDrawable(new ColorDrawable (Color.TRANSPARENT))
 //            progressDialog?.setContentView(R.layout.progress)
         } catch (e: Exception) {
-            LogUtils.showError(e)
+            LogUtils.e(e)
         }
     }
 
@@ -34,7 +34,7 @@ object ProgressDialogManager {
                 try {
                     it.dismiss()
                 } catch (e: Exception) {
-                    LogUtils.showError(e)
+                    LogUtils.e(e)
                 }
                 progressDialog = null
             }

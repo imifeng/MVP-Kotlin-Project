@@ -40,7 +40,7 @@ class RetrofitClient {
         get() = LoggingInterceptor(object : Logger {
             override fun log(message: String?) {
                 message?.let {
-                    LogUtils.showLog("RetrofitLog", it)
+                    LogUtils.d("RetrofitLog", it)
                 }
             }
         })
