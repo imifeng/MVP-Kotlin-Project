@@ -1,4 +1,4 @@
-package com.kotlin.project.ui.fragment
+package com.kotlin.project.ui.test.fragment
 
 import android.view.View
 import com.kotlin.project.R
@@ -7,7 +7,7 @@ import com.kotlin.project.common.Constant
 import com.kotlin.project.mvp.contract.TestContract
 import com.kotlin.project.mvp.model.bean.RepoBean
 import com.kotlin.project.mvp.presenter.TestPresenter
-import com.kotlin.project.ui.listener.setOnEventClickListener
+import com.kotlin.project.extension.listener.setOnEventClickListener
 import com.kotlin.project.utils.GsonUtils
 import com.kotlin.project.utils.ToastUtils
 import kotlinx.android.synthetic.main.fragment_test_repos.*

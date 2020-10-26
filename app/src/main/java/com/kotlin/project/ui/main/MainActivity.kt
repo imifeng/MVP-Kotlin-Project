@@ -1,10 +1,12 @@
-package com.kotlin.project.ui.activity
+package com.kotlin.project.ui.main
 
 import android.content.Intent
-import android.view.View
 import com.kotlin.project.R
 import com.kotlin.project.base.BaseActivity
-import com.kotlin.project.ui.listener.setOnEventClickListener
+import com.kotlin.project.extension.listener.setOnEventClickListener
+import com.kotlin.project.ui.test.MenuTestActivity
+import com.kotlin.project.ui.repos.ReposActivity
+import com.kotlin.project.ui.test.TestFragmentActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity() {
@@ -35,10 +37,6 @@ class MainActivity : BaseActivity() {
             val intent = Intent(this, ReposActivity::class.java)
             startActivity(intent)
         }
-    }
-
-    override fun onBack() {
-        finish()
     }
 
 }

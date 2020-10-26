@@ -2,7 +2,6 @@ package com.kotlin.project.base
 
 import android.content.res.Resources
 import android.os.Bundle
-import android.view.KeyEvent
 import androidx.appcompat.app.AppCompatActivity
 import com.jaeger.library.StatusBarUtil
 
@@ -29,17 +28,12 @@ abstract class BaseActivity : AppCompatActivity() {
     protected open fun initData(){}
     protected open fun initEvent(){}
 
-    protected abstract fun onBack()
+    open fun handleBack() = false
 
-    /**
-     * Listen the back key click event
-     */
-    override fun onKeyDown(keyCode: Int, event: KeyEvent): Boolean {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            onBack()
-            return true
+    override fun onBackPressed() {
+        if (!handleBack()) {
+            super.onBackPressed()
         }
-        return super.onKeyDown(keyCode, event)
     }
 
     /**

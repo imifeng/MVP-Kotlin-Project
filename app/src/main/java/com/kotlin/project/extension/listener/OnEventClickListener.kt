@@ -1,4 +1,4 @@
-package com.kotlin.project.ui.listener
+package com.kotlin.project.extension.listener
 
 import android.view.MotionEvent
 import android.view.View
@@ -30,7 +30,7 @@ inline fun View.setOnEventClickListener(crossinline onClick: () -> Unit) {
                 }
             }
         } catch (e: Exception) {
-            LogUtils.showError(e)
+            LogUtils.e(e)
         }
         true
     }

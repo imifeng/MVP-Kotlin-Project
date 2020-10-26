@@ -1,13 +1,12 @@
-package com.kotlin.project.ui.activity
+package com.kotlin.project.ui.test
 
 import android.os.Bundle
-import android.view.View
 import com.kotlin.project.R
 import com.kotlin.project.base.BaseActivity
 import com.kotlin.project.base.BaseFragment
 import com.kotlin.project.common.Constant
-import com.kotlin.project.ui.fragment.TestReposFragment
-import com.kotlin.project.ui.listener.setOnEventClickListener
+import com.kotlin.project.ui.test.fragment.TestReposFragment
+import com.kotlin.project.extension.listener.setOnEventClickListener
 import com.kotlin.project.utils.ToastUtils
 import com.kotlin.project.utils.adaptStatusBarHeight
 import kotlinx.android.synthetic.main.activity_fragment_test.*
@@ -15,10 +14,6 @@ import kotlinx.android.synthetic.main.activity_fragment_test.*
 class TestFragmentActivity : BaseActivity() {
 
     override val layoutId = R.layout.activity_fragment_test
-
-    override fun onBack() {
-        finish()
-    }
 
     override fun initView() {
         super.initView()
@@ -41,7 +36,7 @@ class TestFragmentActivity : BaseActivity() {
     override fun initEvent() {
         super.initEvent()
         //使用了有点击效果
-        iv_back.setOnEventClickListener { onBack() }
+        iv_back.setOnEventClickListener { finish() }
     }
 
     private fun openFragment(fragment: BaseFragment) {
