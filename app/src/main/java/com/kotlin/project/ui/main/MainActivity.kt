@@ -39,8 +39,4 @@ class MainActivity : BaseActivity() {
         }
     }
 
-    override fun onBack() {
-        finish()
-    }
-
 }

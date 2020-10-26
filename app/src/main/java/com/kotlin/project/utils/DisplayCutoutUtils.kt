@@ -70,7 +70,7 @@ private fun getStatusBarHeight(context: Context): Int {
         if (resourceId > 0) {
             result = context.resources.getDimensionPixelSize(resourceId)
         }
-        LogUtils.showLog(TAG, "getStatusBarHeight==========>$result")
+        LogUtils.d(TAG, "getStatusBarHeight==========>$result")
         return result
     } catch (e: Exception) {
         e.printStackTrace()
