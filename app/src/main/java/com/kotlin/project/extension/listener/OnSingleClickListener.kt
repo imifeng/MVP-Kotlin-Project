@@ -1,4 +1,4 @@
-package com.kotlin.project.ui.listener
+package com.kotlin.project.extension.listener
 
 import android.view.View
 

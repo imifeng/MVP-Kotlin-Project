@@ -21,16 +21,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.activity.MainActivity">
+        <activity android:name=".ui.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.activity.TestFragmentActivity" />
-        <activity android:name=".ui.activity.ReposActivity" />
-        <activity android:name=".ui.activity.MenuTestActivity" />
+        <activity android:name=".ui.test.TestFragmentActivity" />
+        <activity android:name=".ui.repos.ReposActivity" />
+        <activity android:name=".ui.test.MenuTestActivity" />
     </application>
 
 </manifest>
