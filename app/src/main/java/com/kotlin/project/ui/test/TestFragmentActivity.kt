@@ -15,10 +15,6 @@ class TestFragmentActivity : BaseActivity() {
 
     override val layoutId = R.layout.activity_fragment_test
 
-    override fun onBack() {
-        finish()
-    }
-
     override fun initView() {
         super.initView()
 
@@ -40,7 +36,7 @@ class TestFragmentActivity : BaseActivity() {
     override fun initEvent() {
         super.initEvent()
         //使用了有点击效果
-        iv_back.setOnEventClickListener { onBack() }
+        iv_back.setOnEventClickListener { finish() }
     }
 
     private fun openFragment(fragment: BaseFragment) {

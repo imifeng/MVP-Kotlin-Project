@@ -199,10 +199,4 @@ class MenuTestActivity : BaseActivity() {
             .displayMetrics.density
         return (density * value + 0.5f).toInt()
     }
-
-
-    override fun onBack() {
-        finish()
-    }
-
 }
