@@ -1,4 +1,4 @@
-package com.kotlin.project.ui.activity
+package com.kotlin.project.ui.repos
 
 import android.os.Build
 import androidx.annotation.RequiresApi
@@ -7,7 +7,7 @@ import com.kotlin.project.base.BaseMvpActivity
 import com.kotlin.project.mvp.contract.ReposContract
 import com.kotlin.project.mvp.model.bean.RepoBean
 import com.kotlin.project.mvp.presenter.ReposPresenter
-import com.kotlin.project.ui.listener.setOnEventClickListener
+import com.kotlin.project.extension.listener.setOnEventClickListener
 import com.kotlin.project.utils.*
 import kotlinx.android.synthetic.main.activity_repos.*
 

@@ -1,16 +1,15 @@
-package com.kotlin.project.ui.activity
+package com.kotlin.project.ui.test
 
 import android.animation.Animator
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
-import android.view.View
 import android.view.animation.BounceInterpolator
 import android.widget.TextView
 import com.kotlin.project.R
 import com.kotlin.project.base.BaseActivity
 import com.kotlin.project.extension.gone
 import com.kotlin.project.extension.visible
-import com.kotlin.project.ui.listener.setOnEventClickListener
+import com.kotlin.project.extension.listener.setOnEventClickListener
 import kotlinx.android.synthetic.main.activity_menu_test.*
 
 

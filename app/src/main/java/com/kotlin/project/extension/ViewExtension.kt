@@ -3,7 +3,7 @@ package com.kotlin.project.extension
 import android.view.View
 import androidx.annotation.ColorRes
 import androidx.core.content.ContextCompat
-import com.kotlin.project.ui.listener.OnSingleClickListener
+import com.kotlin.project.extension.listener.OnSingleClickListener
 
 /**
  * Sets the background color for an element given a primary color res
